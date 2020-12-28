@@ -1,2 +1,1 @@
-# ragemp-hud
-A Selfmade RageMP-HUD
+1. move the folder "hud" and the file "index.js" to the "client_packages" folder

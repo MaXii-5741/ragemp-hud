@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<meta name="author" content="MaXii">
+	<script src="/hud/hud.js"></script>
+</head>
+<body>
+	<div class="armour">	
+		<i class="fas fa-shield-alt"></i>
+		<div class="armourline1"><div class="inarmourline1"></div></div>
+	</div>
+	<div class="health">
+		<i class="fas fa-heartbeat"></i>
+		<div class="healthline1"><div class="inhealthline1"></div></div>
+	</div>
+	<div class="clock">
+		<i class="fas fa-clock"></i>
+		<p id="date">6</p>
+	</div>
+</body>
+
+<script>
+
+function update(health, armour, money) {			
+	document.getElementsByClassName('inhealthline1')[0].style.width = health + "%";
+	document.getElementsByClassName('inarmourline1')[0].style.width = armour + "%";
+}
+
+(function () {
+	function uhrzeit() {
+		var jetzt = new Date(),
+			h = jetzt.getHours(),
+			m = jetzt.getMinutes(),
+            s = jetzt.getSeconds();
+            d = jetzt.getDay() + 27 ;
+            mo = jetzt.getMonth() + 1;
+            j = jetzt.getYear() + 1900;
+		m = fuehrendeNull(m);
+		s = fuehrendeNull(s);
+		document.getElementById('date')
+			.innerHTML = h + ':' + m /*+ ':' + s*/ + ' - ' + d + '.' + mo + '.' + j;
+		setTimeout(uhrzeit, 500);
+	}
+
+	function fuehrendeNull(zahl) {
+		zahl = (zahl < 10 ? '0' : '') + zahl;
+		return zahl;
+	}
+	document.addEventListener('DOMContentLoaded', uhrzeit);
+}());
+</script>
+
+</html>
