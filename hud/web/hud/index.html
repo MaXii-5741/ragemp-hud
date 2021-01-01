@@ -38,6 +38,7 @@ function update(health, armour, money) {
 			y = heute.getFullYear();
 			d = heute.getDate(); 
 			min = heute.getMinutes();
+			min = fuehrendeNull(min);
 			h = heute.getHours()
 		document.getElementById('date')
 			.innerHTML = h + ":" + min + " - " + d + "." + m + "." + y;
