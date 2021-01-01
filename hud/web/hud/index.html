@@ -35,11 +35,14 @@ function update(health, armour, money) {
 	function uhrzeit() {
 		var heute = new Date(),
 			m = heute.getMonth() + 1;
+			m = fuehrendeNull(m);
 			y = heute.getFullYear();
 			d = heute.getDate(); 
+			d = fuehrendeNull(d);
 			min = heute.getMinutes();
 			min = fuehrendeNull(min);
 			h = heute.getHours()
+			h = fuehrendeNull(h);
 		document.getElementById('date')
 			.innerHTML = h + ":" + min + " - " + d + "." + m + "." + y;
 		setTimeout(uhrzeit, 500);
