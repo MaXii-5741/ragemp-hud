@@ -31,18 +31,16 @@ function update(health, armour, money) {
 }
 
 (function () {
+(function () {
 	function uhrzeit() {
-		var jetzt = new Date(),
-			h = jetzt.getHours(),
-			m = jetzt.getMinutes(),
-            s = jetzt.getSeconds();
-            d = jetzt.getDay() + 27 ;
-            mo = jetzt.getMonth() + 1;
-            j = jetzt.getYear() + 1900;
-		m = fuehrendeNull(m);
-		s = fuehrendeNull(s);
+		var heute = new Date(),
+			m = heute.getMonth() + 1;
+			y = heute.getFullYear();
+			d = heute.getDate(); 
+			min = heute.getMinutes();
+			h = heute.getHours()
 		document.getElementById('date')
-			.innerHTML = h + ':' + m /*+ ':' + s*/ + ' - ' + d + '.' + mo + '.' + j;
+			.innerHTML = h + ":" + min + " - " + d + "." + m + "." + y;
 		setTimeout(uhrzeit, 500);
 	}
 
